@@ -1,0 +1,57 @@
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  border-bottom: 1px solid black;
+}
+
+.item,
+.itemBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+.itemName {
+  text-decoration: underline double;
+  text-decoration-color: linear-gradient(to right, red, blue);
+}
+.quantity {
+  position: relative;
+  min-width: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowLeft {
+  position: absolute;
+  top: -3px;
+  right: 40px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arrowRight {
+  position: absolute;
+  top: -3px;
+  left: 40px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.arrowLeft:hover {
+  color: #1e90ff;
+}
+.arrowRight:hover {
+  color: #1e90ff;
+}

@@ -1,0 +1,11 @@
+.statsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.statsText {
+  font-size: 18px;
+  font-style: italic;
+}

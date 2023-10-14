@@ -6,9 +6,32 @@
 .addIcon {
   position: absolute;
   top: -5px;
-  right: 5px;
+  right: 12px;
   transform: translateY(-50%);
   color: black;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.addIcon:hover {
+  color: #1e90ff;
+}
+
+.addInput {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease;
+  padding: 5px 10px;
+  width: 300px;
+  height: 25px;
+}
+
+.addInput:hover,
+.addInput:focus {
+  border-color: #007bff;
 }
