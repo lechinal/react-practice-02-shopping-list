@@ -3,7 +3,7 @@ import styles from './ItemsList.module.css';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import DeleteButton from '../DeleteButton/DeleteButton';
-// import PurchasedButton from '../PurchasedButton/PurchasedButton';
+import CheckedButton from '../CheckedButton/CheckedButton';
 
 function ItemsList(props) {
   const [itemsState, setItemsState] = useState(props.items.map(() => false));
@@ -27,10 +27,15 @@ function ItemsList(props) {
     props.onUpdateQuantity(updatedItems);
   }
 
-  function handleTogglePurchased(index) {
+  function handleToggleChecked(index) {
     const updatedItemsState = [...itemsState];
     updatedItemsState[index] = !updatedItemsState[index];
+
+    const updatedItems = [...props.items];
+    updatedItems[index].checked = !updatedItems[index].checked;
+
     setItemsState(updatedItemsState);
+    props.onUpdateQuantity(updatedItems);
   }
 
   return (
@@ -39,7 +44,7 @@ function ItemsList(props) {
         <div
           key={item.itemName}
           className={`${styles.item} ${
-            itemsState[index] ? styles.itemPurchased : ''
+            itemsState[index] ? styles.itemChecked : ''
           }`}
         >
           <div className={styles.itemBox}>
@@ -60,12 +65,11 @@ function ItemsList(props) {
           <div className={styles.btnBox}>
             <DeleteButton onClick={() => handleDelete(index)} />
 
-            <button
-              className={styles.btn}
-              onClick={() => handleTogglePurchased(index)}
-            >
-              {itemsState[index] ? 'NOT CHECKED' : 'CHECKED'}
-            </button>
+            <CheckedButton
+              onToggleChecked={() => handleToggleChecked(index)}
+              checked={itemsState[index]}
+              onClick={() => handleToggleChecked(index)}
+            />
           </div>
         </div>
       ))}

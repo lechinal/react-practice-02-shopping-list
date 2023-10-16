@@ -56,9 +56,9 @@
   color: #1e90ff;
 }
 
-.itemPurchased {
-  background-color: #f0f0f0; /* Culoare de fundal gri */
-  opacity: 0.6; /* Opacitate pentru elementul gri */
+.itemChecked {
+  background-color: #f0f0f0;
+  opacity: 0.6;
 }
 
 .btnBox {

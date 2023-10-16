@@ -1,10 +1,13 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import CheckIcon from '@mui/icons-material/Check';
 
-function PurchaseButton() {
+function CheckedButton({ checked, onClick }) {
   return (
     <Button
+      onClick={onClick}
       variant="outlined"
+      startIcon={<CheckIcon />}
       sx={{
         color: 'black',
         borderColor: 'black',
@@ -15,8 +18,10 @@ function PurchaseButton() {
           borderColor: 'black',
         },
       }}
-    ></Button>
+    >
+      {checked ? 'UNCHECKED' : 'CHECK'}
+    </Button>
   );
 }
 
-export default PurchaseButton;
+export default CheckedButton;
