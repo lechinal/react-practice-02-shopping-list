@@ -14,6 +14,10 @@ import DeleteButton from '../DeleteButton/DeleteButton';
 // ];
 
 function ItemsList(props) {
+  const handleDelete = index => {
+    console.log('Delete button functioneaza', index);
+    props.onDeleteItem(index);
+  };
   return (
     <div className={styles.itemsList}>
       {props.items.map((item, index) => (
@@ -27,7 +31,7 @@ function ItemsList(props) {
             </div>
           </div>
           <div className={styles.btnBox}>
-            <DeleteButton />
+            <DeleteButton onClick={() => handleDelete(index)} />
           </div>
         </div>
       ))}

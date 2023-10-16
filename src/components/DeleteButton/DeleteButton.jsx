@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function DeleteButton() {
+function DeleteButton(props) {
   return (
     <Button
       variant="outlined"
@@ -17,6 +17,7 @@ function DeleteButton() {
           borderColor: 'black',
         },
       }}
+      onClick={props.onClick}
     >
       Delete
     </Button>

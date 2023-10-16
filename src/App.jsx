@@ -18,13 +18,19 @@ export const App = () => {
     setItems(prevItems => [...prevItems, { itemName: newItem, quantity: 0 }]);
   };
 
+  const handleDeleteItem = index => {
+    const updatedItems = [...items];
+    updatedItems.splice(index, 1);
+    setItems(updatedItems);
+  };
+
   return (
     <div className="app">
       <div className="appTitleBox">
         <h1 className="appTitle">Shopping List</h1>
       </div>
       <AddItem onAddItem={handleAddItem} />
-      <ItemsList items={items} />
+      <ItemsList items={items} onDeleteItem={handleDeleteItem} />
       <Stats />
     </div>
   );
