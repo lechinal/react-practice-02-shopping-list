@@ -20,8 +20,8 @@
   padding: 10px;
 }
 .itemName {
-  text-decoration: underline double;
-  text-decoration-color: linear-gradient(to right, red, blue);
+  text-decoration: underline wavy;
+  text-decoration-color: green;
 }
 .quantity {
   position: relative;
