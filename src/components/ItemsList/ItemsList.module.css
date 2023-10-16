@@ -55,3 +55,13 @@
 .arrowRight:hover {
   color: #1e90ff;
 }
+
+.itemPurchased {
+  background-color: #f0f0f0; /* Culoare de fundal gri */
+  opacity: 0.6; /* Opacitate pentru elementul gri */
+}
+
+.btnBox {
+  display: flex;
+  gap: 15px;
+}

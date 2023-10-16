@@ -6,12 +6,12 @@ import Stats from './components/Stats/Stats';
 
 export const App = () => {
   const [items, setItems] = useState([
-    { itemName: 'Apples', quantity: 10 },
-    { itemName: 'Pears', quantity: 10 },
-    { itemName: 'Oranges', quantity: 7 },
-    { itemName: 'Grapes', quantity: 5 },
-    { itemName: 'Bananas', quantity: 15 },
-    { itemName: 'Peaches', quantity: 5 },
+    { itemName: 'Apples', quantity: 10, purchased: false },
+    { itemName: 'Pears', quantity: 10, purchased: false },
+    { itemName: 'Oranges', quantity: 7, purchased: false },
+    { itemName: 'Grapes', quantity: 5, purchased: false },
+    { itemName: 'Bananas', quantity: 15, purchased: false },
+    { itemName: 'Peaches', quantity: 5, purchased: false },
   ]);
 
   const handleAddItem = newItem => {
@@ -29,6 +29,9 @@ export const App = () => {
   };
 
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
+  const purchasedCount = items.filter(item => item.purchased).length;
+  const remainingCount = items.filter(item => !item.purchased).length;
+
   return (
     <div className="app">
       <div className="appTitleBox">
@@ -40,7 +43,11 @@ export const App = () => {
         onDeleteItem={handleDeleteItem}
         onUpdateQuantity={handleUpdateQuantity}
       />
-      <Stats totalQuantity={totalQuantity} />
+      <Stats
+        totalQuantity={totalQuantity}
+        purchasedCount={purchasedCount}
+        remainingCount={remainingCount}
+      />
     </div>
   );
 };
