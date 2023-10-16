@@ -64,7 +64,7 @@ function ItemsList(props) {
               className={styles.btn}
               onClick={() => handleTogglePurchased(index)}
             >
-              {itemsState[index] ? 'Not Checked' : 'CHECKED'}
+              {itemsState[index] ? 'NOT CHECKED' : 'CHECKED'}
             </button>
           </div>
         </div>
