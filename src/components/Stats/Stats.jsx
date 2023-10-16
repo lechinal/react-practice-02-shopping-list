@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Stats.module.css';
 
-function Stats() {
+function Stats(props) {
   return (
     <div className={styles.statsBox}>
-      <p className={styles.statsText}>Total: 6</p>
+      <p className={styles.statsText}>Total: {props.totalQuantity}</p>
     </div>
   );
 }
