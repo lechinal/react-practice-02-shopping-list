@@ -19,7 +19,7 @@ function CheckedButton({ checked, onClick }) {
         },
       }}
     >
-      {checked ? 'UNCHECKED' : 'CHECK'}
+      {checked ? 'UNCKD' : 'CHECK'}
     </Button>
   );
 }
