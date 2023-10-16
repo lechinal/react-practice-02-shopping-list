@@ -18,6 +18,21 @@ function ItemsList(props) {
     console.log('Delete button functioneaza', index);
     props.onDeleteItem(index);
   };
+
+  function handleDecreaseQuantity(index) {
+    const updatedItems = [...props.items];
+    if (updatedItems[index].quantity > 0) {
+      updatedItems[index].quantity--;
+      props.onUpdateQuantity(updatedItems);
+    }
+  }
+
+  function handleIncreaseQuantity(index) {
+    const updatedItems = [...props.items];
+    updatedItems[index].quantity++;
+    props.onUpdateQuantity(updatedItems);
+  }
+
   return (
     <div className={styles.itemsList}>
       {props.items.map((item, index) => (
@@ -25,9 +40,15 @@ function ItemsList(props) {
           <div className={styles.itemBox}>
             <div className={styles.itemName}>{item.itemName}</div>
             <div className={styles.quantity}>
-              <ArrowBackIosNewOutlinedIcon className={styles.arrowLeft} />
+              <ArrowBackIosNewOutlinedIcon
+                className={styles.arrowLeft}
+                onClick={() => handleDecreaseQuantity(index)}
+              />
               {item.quantity}
-              <ArrowForwardIosOutlinedIcon className={styles.arrowRight} />
+              <ArrowForwardIosOutlinedIcon
+                className={styles.arrowRight}
+                onClick={() => handleIncreaseQuantity(index)}
+              />
             </div>
           </div>
           <div className={styles.btnBox}>

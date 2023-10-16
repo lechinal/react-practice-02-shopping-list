@@ -24,13 +24,20 @@ export const App = () => {
     setItems(updatedItems);
   };
 
+  const handleUpdateQuantity = updatedItems => {
+    setItems(updatedItems);
+  };
   return (
     <div className="app">
       <div className="appTitleBox">
         <h1 className="appTitle">Shopping List</h1>
       </div>
       <AddItem onAddItem={handleAddItem} />
-      <ItemsList items={items} onDeleteItem={handleDeleteItem} />
+      <ItemsList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onUpdateQuantity={handleUpdateQuantity}
+      />
       <Stats />
     </div>
   );
