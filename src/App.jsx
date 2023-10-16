@@ -6,12 +6,12 @@ import Stats from './components/Stats/Stats';
 
 export const App = () => {
   const [items, setItems] = useState([
-    { itemName: 'Apples', quantity: 10, purchased: false },
-    { itemName: 'Pears', quantity: 10, purchased: false },
-    { itemName: 'Oranges', quantity: 7, purchased: false },
-    { itemName: 'Grapes', quantity: 5, purchased: false },
-    { itemName: 'Bananas', quantity: 15, purchased: false },
-    { itemName: 'Peaches', quantity: 5, purchased: false },
+    { itemName: 'Apples', quantity: 10, checked: true },
+    { itemName: 'Pears', quantity: 10, checked: true },
+    { itemName: 'Oranges', quantity: 7, checked: false },
+    { itemName: 'Grapes', quantity: 5, checked: false },
+    { itemName: 'Bananas', quantity: 15, checked: false },
+    { itemName: 'Peaches', quantity: 5, checked: false },
   ]);
 
   const handleAddItem = newItem => {
@@ -29,8 +29,10 @@ export const App = () => {
   };
 
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
-  const purchasedCount = items.filter(item => item.purchased).length;
-  const remainingCount = items.filter(item => !item.purchased).length;
+
+  const totalItems = items.length;
+  const checkedItems = items.filter(item => item.purchased).length;
+  const remainingItems = totalItems - checkedItems;
 
   return (
     <div className="app">
@@ -45,8 +47,8 @@ export const App = () => {
       />
       <Stats
         totalQuantity={totalQuantity}
-        purchasedCount={purchasedCount}
-        remainingCount={remainingCount}
+        checkedItems={checkedItems}
+        remainingItems={remainingItems}
       />
     </div>
   );

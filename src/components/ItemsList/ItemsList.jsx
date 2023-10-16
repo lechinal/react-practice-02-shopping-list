@@ -60,8 +60,11 @@ function ItemsList(props) {
           <div className={styles.btnBox}>
             <DeleteButton onClick={() => handleDelete(index)} />
 
-            <button onClick={() => handleTogglePurchased(index)}>
-              {itemsState[index] ? 'Not Checked' : 'Checked'}
+            <button
+              className={styles.btn}
+              onClick={() => handleTogglePurchased(index)}
+            >
+              {itemsState[index] ? 'Not Checked' : 'CHECKED'}
             </button>
           </div>
         </div>

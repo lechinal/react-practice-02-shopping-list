@@ -65,3 +65,19 @@
   display: flex;
   gap: 15px;
 }
+
+.btn {
+  color: black;
+  border-color: black;
+  background-color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  /* border-width: thin; */
+  border: 1px solid black;
+}
+.btn:hover {
+  color: white;
+  background-color: black;
+  border-color: black;
+  font-weight: 700;
+}
