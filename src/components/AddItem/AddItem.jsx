@@ -6,13 +6,43 @@ function AddItem(props) {
   const [inputValue, setInputValue] = useState('');
 
   const handleAddButtonClick = () => {
-    props.onAddItem(inputValue);
-    alert(`You added ${inputValue}`);
-    setInputValue('');
+    if (inputValue.trim() !== '') {
+      // Verifică dacă valoarea inputului nu este golă sau conține doar spații albe
+      props.onAddItem(inputValue);
+      alert(`You added ${inputValue}`);
+      setInputValue('');
+    } else {
+      alert('Please enter an item before adding.');
+    }
   };
 
+  // const handleAddButtonClick = () => {
+  //   props.onAddItem(inputValue);
+  //   alert(`You added ${inputValue}`);
+  //   setInputValue('');
+  // };
+
+  const handleAddItem = event => {
+    event.preventDefault();
+    if (inputValue.trim() !== '') {
+      // Verifică dacă valoarea inputului nu este golă sau conține doar spații albe
+      props.onAddItem(inputValue);
+      alert(`You added ${inputValue}`);
+      setInputValue('');
+    } else {
+      alert('Please enter an item before adding.');
+    }
+  };
+
+  // const handleAddItem = event => {
+  //   event.preventDefault();
+  //   props.onAddItem(inputValue);
+  //   alert(`You added ${inputValue}`);
+  //   setInputValue('');
+  // };
+
   return (
-    <div className="addItemBox">
+    <form onSubmit={handleAddItem} className="addItemBox">
       <input
         className={styles.addInput}
         type="text"
@@ -26,7 +56,7 @@ function AddItem(props) {
           onClick={() => handleAddButtonClick()}
         />
       </span>
-    </div>
+    </form>
   );
 }
 

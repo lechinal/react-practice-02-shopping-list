@@ -8,11 +8,6 @@ import CheckedButton from '../CheckedButton/CheckedButton';
 function ItemsList(props) {
   const [itemsState, setItemsState] = useState(props.items.map(() => false));
 
-  const handleDelete = index => {
-    console.log('Delete button functioneaza', index);
-    props.onDeleteItem(index);
-  };
-
   function handleDecreaseQuantity(index) {
     const updatedItems = [...props.items];
     if (updatedItems[index].quantity > 0) {
@@ -26,6 +21,22 @@ function ItemsList(props) {
     updatedItems[index].quantity++;
     props.onUpdateQuantity(updatedItems);
   }
+  const handleDelete = index => {
+    const itemToDelete = props.items[index].itemName;
+    const confimation = window.confirm(
+      `Are you sure you want to delete ${itemToDelete}?`
+    );
+
+    if (confimation) {
+      props.onDeleteItem(index);
+    }
+  };
+
+  // const handleDelete = index => {
+  //   console.log('Delete button functioneaza', index);
+  //   alert(`Are you sure you want to delete ${props.items[index].itemName}?`);
+  //   props.onDeleteItem(index);
+  // };
 
   function handleToggleChecked(index) {
     const updatedItemsState = [...itemsState];

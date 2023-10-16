@@ -1,3 +1,7 @@
+.addItemBox {
+  width: 100%;
+  display: flex;
+}
 .addIconContainer {
   position: relative;
   display: inline-block;

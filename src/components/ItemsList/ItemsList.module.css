@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  /* width: 100%; */
   font-size: 18px;
   border-bottom: 1px solid black;
 }

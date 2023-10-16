@@ -5,11 +5,11 @@ import Stats from './components/Stats/Stats';
 
 export const App = () => {
   const [items, setItems] = useState([
-    { itemName: 'Apples', quantity: 10, checked: false },
-    { itemName: 'Pears', quantity: 10, checked: false },
+    { itemName: 'Apples', quantity: 1, checked: false },
+    { itemName: 'Pears', quantity: 1, checked: false },
     { itemName: 'Oranges', quantity: 7, checked: false },
     { itemName: 'Grapes', quantity: 5, checked: false },
-    { itemName: 'Bananas', quantity: 15, checked: false },
+    { itemName: 'Bananas', quantity: 7, checked: false },
     { itemName: 'Peaches', quantity: 5, checked: false },
   ]);
 
