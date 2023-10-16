@@ -46,7 +46,7 @@ function AddItem(props) {
       <input
         className={styles.addInput}
         type="text"
-        placeholder="Add an item"
+        placeholder="Add an item "
         value={inputValue}
         onChange={event => setInputValue(event.target.value)}
       />
