@@ -4,6 +4,8 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import CheckedButton from '../CheckedButton/CheckedButton';
+import Button from '@mui/material/Button';
+import ClearAllIcon from '@mui/icons-material/ClearAll';
 
 function ItemsList(props) {
   const [itemsState, setItemsState] = useState(props.items.map(() => false));
@@ -49,42 +51,75 @@ function ItemsList(props) {
     props.onUpdateQuantity(updatedItems);
   }
 
+  function handleClearList() {
+    props.onUpdateQuantity([]);
+  }
   return (
-    <div className={styles.itemsList}>
-      {props.items.map((item, index) => (
-        <div
-          key={item.itemName}
-          className={`${styles.item} ${
-            itemsState[index] ? styles.itemChecked : ''
-          }`}
-        >
-          <div className={styles.itemBox}>
-            <div className={styles.itemName}>{item.itemName}</div>
-            <div className={styles.quantity}>
-              <ArrowBackIosNewOutlinedIcon
-                className={styles.arrowLeft}
-                onClick={() => handleDecreaseQuantity(index)}
-              />
-              {item.quantity}
-              <ArrowForwardIosOutlinedIcon
-                className={styles.arrowRight}
-                onClick={() => handleIncreaseQuantity(index)}
-              />
+    <>
+      <div className={styles.itemsList}>
+        {props.items.length > 0 ? (
+          props.items.map((item, index) => (
+            <div
+              key={item.itemName}
+              className={`${styles.item} ${
+                itemsState[index] ? styles.itemChecked : ''
+              }`}
+            >
+              <div className={styles.itemBox}>
+                <div className={styles.itemName}>{item.itemName}</div>
+                <div className={styles.quantity}>
+                  <ArrowBackIosNewOutlinedIcon
+                    className={styles.arrowLeft}
+                    onClick={() => handleDecreaseQuantity(index)}
+                  />
+                  {item.quantity}
+                  <ArrowForwardIosOutlinedIcon
+                    className={styles.arrowRight}
+                    onClick={() => handleIncreaseQuantity(index)}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.btnBox}>
+                <DeleteButton onClick={() => handleDelete(index)} />
+
+                <CheckedButton
+                  onToggleChecked={() => handleToggleChecked(index)}
+                  checked={itemsState[index]}
+                  onClick={() => handleToggleChecked(index)}
+                />
+              </div>
             </div>
+          ))
+        ) : (
+          <div className={styles.emptyList}>
+            The list is empty, please add some items.
           </div>
-
-          <div className={styles.btnBox}>
-            <DeleteButton onClick={() => handleDelete(index)} />
-
-            <CheckedButton
-              onToggleChecked={() => handleToggleChecked(index)}
-              checked={itemsState[index]}
-              onClick={() => handleToggleChecked(index)}
-            />
+        )}
+        {props.items.length > 0 && (
+          <div className={styles.clearBtn}>
+            <Button
+              variant="outlined"
+              color="error"
+              startIcon={<ClearAllIcon />}
+              sx={{
+                color: 'red',
+                borderColor: 'red',
+                fontWeight: 700,
+                '&:hover': {
+                  color: 'white',
+                  backgroundColor: 'red',
+                  borderColor: 'red',
+                },
+              }}
+              onClick={handleClearList}
+            >
+              Clear List
+            </Button>
           </div>
-        </div>
-      ))}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

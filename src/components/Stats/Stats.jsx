@@ -4,24 +4,26 @@ import styles from './Stats.module.css';
 function Stats({ totalItems, checkedItems, remainingItems, totalQuantity }) {
   return (
     <div className={styles.statsBox}>
-      <p className={styles.statsText}>
-        {checkedItems === totalItems ? (
-          <span style={{ fontWeight: 'bold', color: 'green' }}>
-            All items are checked!
-          </span>
-        ) : (
-          <>
-            You have{' '}
-            <span style={{ fontWeight: 'bold', color: 'blue' }}>
-              {totalItems}
-            </span>{' '}
-            items in the list, with a Total quantity of:{' '}
-            <span style={{ fontWeight: 'bold', color: 'blue' }}>
-              {totalQuantity}
+      {totalItems > 0 && (
+        <p className={styles.statsText}>
+          {checkedItems === totalItems ? (
+            <span style={{ fontWeight: 'bold', color: 'green' }}>
+              All items are checked!
             </span>
-          </>
-        )}
-      </p>
+          ) : (
+            <>
+              You have{' '}
+              <span style={{ fontWeight: 'bold', color: 'blue' }}>
+                {totalItems}
+              </span>{' '}
+              items in the list, with a Total quantity of:{' '}
+              <span style={{ fontWeight: 'bold', color: 'blue' }}>
+                {totalQuantity}
+              </span>
+            </>
+          )}
+        </p>
+      )}
       <p className={styles.statsText}>
         You have{' '}
         <span style={{ fontWeight: 'bold', color: 'blue' }}>

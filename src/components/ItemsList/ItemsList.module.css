@@ -82,3 +82,10 @@
   border-color: black;
   font-weight: 700;
 }
+
+.clearBtn {
+  padding-bottom: 10px;
+}
+.emptyList {
+  color: red;
+}
